@@ -32,6 +32,24 @@ TURNIP_DEV=		# the network device
 TURNIP_ID=		# the local node's etcd peering IP
 ```
 
+If successful, systemd will show a node pick up the address:
+
+```
+~# systemctl status turnip
+● turnip.service - Partition tolerant layer-3 IP failover
+     Loaded: loaded (/lib/systemd/system/turnip.service; disabled; vendor preset: enabled)
+     Active: active (running) since Fri 2022-07-15 22:08:16 CDT; 29s ago
+   Main PID: 4041 (turnip)
+      Tasks: 5 (limit: 9291)
+     Memory: 27.0M
+        CPU: 352ms
+     CGroup: /system.slice/turnip.service
+             └─4041 /usr/bin/python3 /usr/bin/turnip
+
+Jul 15 22:08:16 apollolake-6e10 systemd[1]: Started Partition tolerant layer-3 IP failover.
+Jul 15 22:08:27 apollolake-6e10 turnip[4041]: INFO:root:assuming address
+```
+
 ## future work
 
 Ideally (n) configured IP addresses would be hash-mapped accross all living nodes.
