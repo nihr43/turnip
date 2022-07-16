@@ -21,6 +21,17 @@ In both examples, an active routing protocol like bgp is required to propogate r
 
 In pursuit of simplicity, turnip simply uses a short control loop to 'watch' which etcd node is currently the cluster leader.  It is expected that etcd is running on localhost of each turnip node.  As a result, there is a short period (~10 seconds) after leader elections where an IP may exist in two places at once.  At this time, this is considered acceptable for the author's use-case.
 
+## configuration
+
+Provided is a systemd unit file.  Land this at `/lib/systemd/system/turnip`.  It references `/etc/default/turnip`.  Create this and populate the env vars:
+
+```
+TURNIP_IP=		# the IP to be failed over
+TURNIP_NETMASK=		# the network mask
+TURNIP_DEV=		# the network device
+TURNIP_ID=		# the local node's etcd peering IP
+```
+
 ## future work
 
 Ideally (n) configured IP addresses would be hash-mapped accross all living nodes.
