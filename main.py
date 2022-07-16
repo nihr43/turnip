@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 '''
 No common machine should have address 1.1.1.1:
 >>> get_address_state('lo', '1.1.1.1')
