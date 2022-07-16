@@ -54,10 +54,10 @@ def enforce_no_address(dev: str, address: str, netmask: str) -> None:
 
 
 def main():
-    address = '172.16.0.254'
-    netmask = '/24'
-    dev = 'br100'
-    me = '10.0.200.3'
+    address = os.getenv('TURNIP_IP')
+    netmask = os.getenv('TURNIP_NETMASK')
+    dev = os.getenv('TURNIP_DEV')
+    me = os.getenv('TURNIP_ID')
 
     logging.basicConfig(level=logging.INFO)
     etcd = etcd3.client()
