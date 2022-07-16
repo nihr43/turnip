@@ -23,7 +23,7 @@ In pursuit of simplicity, turnip simply uses a short control loop to 'watch' whi
 
 ## configuration
 
-Provided is a systemd unit file.  Land this at `/lib/systemd/system/turnip`.  It references `/etc/default/turnip`.  Create this and populate the env vars:
+Provided is a systemd unit file.  Land this at `/lib/systemd/system/turnip.service`.  It references `/etc/default/turnip`.  Create this and populate the env vars:
 
 ```
 TURNIP_IP=		# the IP to be failed over
